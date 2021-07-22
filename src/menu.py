@@ -1,5 +1,8 @@
 import tkinter
 
+class Menu:
+    ...
+
 def update_selection(new_selection):
     selection = new_selection
 

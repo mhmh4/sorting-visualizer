@@ -14,12 +14,15 @@ def main():
     max_rect_height_possible = (HEIGHT - BLOCK_SIZE) // BLOCK_SIZE
     array = [random.randint(1, max_rect_height_possible) for _ in range(num_rectangles)]
     rd.draw_background()
+    flag = False
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-        a.bubble_sort(array)
+        if not flag:
+            a.quicksort(array, 0, len(array) - 1)
+        flag = True
 
 
 if __name__ == "__main__":
