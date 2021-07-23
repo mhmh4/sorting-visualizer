@@ -1,32 +1,33 @@
+from typing import Callable
+
 import tkinter
 
-class Menu:
-    ...
+from algorithms import *
 
-def update_selection(new_selection):
-    selection = new_selection
+OPTIONS = {
+    "Bubble sort": bubble_sort,
+    "Counting sort": counting_sort,
+    "Heap sort": heap_sort,
+    "Insertion sort": insertion_sort,
+    "Merge sort": merge_sort,
+    "Quicksort": quicksort,
+    "Selection sort": selection_sort
+}
 
-options = (
-    "Bubble sort",
-    "Counting sort",
-    "Heap sort",
-    "Insertion sort",
-    "Merge sort",
-    "Quicksort",
-    "Selection sort"
-)
+
+def get_selection() -> Callable[[list[int]], None]:
+    tkinter.mainloop()
+    return OPTIONS[selection.get()]
+
 
 root = tkinter.Tk()
-root.geometry("200x150")
+root.eval("tk::PlaceWindow . center")
 
 selection = tkinter.StringVar(root)
-selection.set(options[0])
+selection.set("Bubble sort")
 
-w = tkinter.OptionMenu(root, selection, *options, command=update_selection)
-w.pack()
+w = tkinter.OptionMenu(root, selection, *OPTIONS)
+w.pack(side=tkinter.LEFT)
 
-print(selection)
-b = tkinter.Button(root, text="Go", command=None)
-b.pack()
-
-tkinter.mainloop()
+b = tkinter.Button(root, text="Ok", command=lambda: root.destroy())
+b.pack(side=tkinter.RIGHT)

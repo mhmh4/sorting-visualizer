@@ -1,6 +1,6 @@
 import pygame
 
-from colors import CYAN, LIGHT_GRAY, DARK_GRAY, SLATE_GRAY
+from colors import CYAN, DARK_GRAY, LIGHT_GRAY, SLATE_GRAY
 from screen import SCREEN
 from settings import BLOCK_SIZE, DELAY_MS, HEIGHT, WIDTH
 

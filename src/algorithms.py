@@ -1,6 +1,6 @@
 import sys
 
-import rendering as rd
+from rendering import render
 
 
 def swap(a: list[int], i: int, j: int) -> None:
@@ -18,22 +18,37 @@ def bubble_sort(array: list[int]) -> None:
             if (array[i] > array[i + 1]):
                 swap(array, i, i + 1)
                 is_sorted = False
-            rd.render(array, i + 1)
+            render(array, i + 1)
         last_unsorted -= 1
-    rd.render(array)
+    render(array)
 
 
-def insertion_sort(array: list[int]) -> None:
-    """Continually sorts in-place as more numbers are looked at."""
-    for i in range(1, len(array)):
-        j = i
-        while j > 0 and array[j - 1] > array[j]:
-            swap(array, j - 1, j)
-            j -= 1
-            rd.render(array, j)
-    rd.render(array)
+def counting_sort(array: list[int]) -> None:
+    """"""
+    b = [0] * len(array)
+    k = max(array)
+
+    c = [0] * (k + 1)
+    n = len(array)
+
+    for j in range(n):
+        c[array[j]] += 1
+        render(array, j)
+
+    for i in range(1, k + 1):
+        c[i] = c[i - 1] + c[i]
+
+    for j in range(n - 1, -1, -1):
+        b[c[array[j]] - 1] = array[j]
+        render(b, c[array[j]] - 1)
+        c[array[j]] -= 1
+
+    render(b)
+    return b
+
 
 def heapify(array, n, i):
+    """"""
     largest = i
     left = 2*i + 1
     right = 2*i + 2
@@ -48,63 +63,36 @@ def heapify(array, n, i):
         swap(array, i, largest)
         heapify(array, n, largest)
 
-def heap_sort(array):
+
+def heap_sort(array: list[int]) -> None:
+    """"""
     n = len(array)
+
     for i in range(n//2 - 1, -1, -1):
-        rd.render(array, i)
+        render(array, i)
         heapify(array, n, i)
+
     for i in range(n-1, 0, -1):
         swap(array, i, 0)
-        rd.render(array, i)
+        render(array, i)
         heapify(array, i, 0)
-    rd.render(array)
 
-def partition(array, p, r):
-    x = array[r]
-    i = p - 1
-    for j in range(p, r):
-        rd.render(array, j)
-        if array[j] <= x:
-            i += 1
-            rd.render(array, i)
-            swap(array, i, j)
-            rd.render(array, j)
-    rd.render(array, i + 1)
-    swap(array, i + 1, r)
-    rd.render(array, r)
-    return i + 1
-
-def quicksort(array, p, r):
-    if p < r:
-        q = partition(array, p, r)
-        quicksort(array, p, q - 1)
-        quicksort(array, q + 1, r)
-
-def partition2(array, left, right):
-    x = array[left]
-    while left < right:
-        rd.render(array, right)
-        while left < right and array[right] > array[left]:
-            right -= 1
-            rd.render(array, right)
-        array[left] = array[right]
-        rd.render(array, left)
-        while left < right and array[left] < array[right]:
-            left += 1
-            rd.render(array, left)
-        array[right] = array[left]
-    array[left] = x
-    return left
-
-def quicksort2(array, left, right):
-    if left < right:
-        p = partition2(array, left, right)
-        quicksort2(array, left, p - 1)
-        quicksort2(array, p + 1, right)
-    rd.render(array)
+    render(array)
 
 
-def merge(array: list[int], p: int, q: int, r: int) -> list[int]:
+def insertion_sort(array: list[int]) -> None:
+    """Continually sorts in-place as more numbers are looked at."""
+    for i in range(1, len(array)):
+        j = i
+        while j > 0 and array[j - 1] > array[j]:
+            swap(array, j - 1, j)
+            j -= 1
+            render(array, j)
+    render(array)
+
+
+def merge(array: list[int], p: int, q: int, r: int) -> None:
+    """"""
     n1 = q - p + 1
     n2 = r - q
 
@@ -129,52 +117,68 @@ def merge(array: list[int], p: int, q: int, r: int) -> list[int]:
         else:
             array[k] = right[j]
             j += 1
-        rd.render(array, highlight=k)
-    return array
+        render(array, highlight=k)
 
 
-def merge_sort(array: list[int], p: int, r: int) -> None:
+def _merge_sort(array: list[int], p: int, r: int) -> None:
+    """"""
     if p < r:
         q = (p + r) // 2
-        merge_sort(array, p, q)
-        merge_sort(array, q + 1, r)
+        _merge_sort(array, p, q)
+        _merge_sort(array, q + 1, r)
         merge(array, p, q, r)
-    rd.render(array)
+    render(array)
 
 
-def counting_sort(array: list[int]) -> None:
-    b = [0] * len(array)
-    k = max(array)
+def merge_sort(array: list[int]) -> None:
+    """"""
+    _merge_sort(array, 0, len(array) - 1)
+    render(array)
 
-    c = [0] * (k + 1)
-    n = len(array)
 
-    for j in range(n):
-        c[array[j]] += 1
-        rd.render(array, j)
+def partition(array: list[int], left: int, right: int) -> int:
+    """"""
+    flag = array[left]
+    while left < right:
+        render(array, right)
+        while left < right and array[right] >= flag:
+            right -= 1
+            render(array, right)
+        array[left] = array[right]
+        render(array, left)
+        while left < right and array[left] < flag:
+            left += 1
+            render(array, left)
+        array[right] = array[left]
+    array[left] = flag
+    return left
 
-    for i in range(1, k + 1):
-        c[i] = c[i - 1] + c[i]
 
-    for j in range(n - 1, -1, -1):
-        b[c[array[j]] - 1] = array[j]
-        rd.render(b, c[array[j]] - 1)
-        c[array[j]] -= 1
+def _quicksort(array: list[int], left: list[int], right: list[int]) -> None:
+    """"""
+    if left < right:
+        p = partition(array, left, right)
+        _quicksort(array, left, p - 1)
+        _quicksort(array, p + 1, right)
 
-    rd.render(b)
-    return b
 
-def selection_sort(array: list[int]):
+def quicksort(array: list[int]) -> None:
+    """"""
+    _quicksort(array, 0, len(array) - 1)
+    render(array)
+
+
+def selection_sort(array: list[int]) -> None:
     """"""
     n = len(array)
     for i in range(n - 1):
         min_index = i
-        rd.render(array, i)
+        render(array, i)
         for j in range(i + 1, n):
-            rd.render(array, j)
+            render(array, j)
             if array[j] < array[min_index]:
                 min_index = j
-        rd.render(array, min_index)
+        render(array, min_index)
         swap(array, i, min_index)
-        rd.render(array, i)
-    rd.render(array)
+        render(array, i)
+    render(array)
