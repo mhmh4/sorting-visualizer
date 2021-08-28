@@ -4,12 +4,10 @@ from rendering import render
 
 
 def swap(a: list[int], i: int, j: int) -> None:
-    """Swaps the elements of `a` at indices `i` and `j`."""
     a[i], a[j] = a[j], a[i]
 
 
 def bubble_sort(array: list[int]) -> None:
-    """"""
     is_sorted = False
     last_unsorted = len(array) - 1
     while not is_sorted:
@@ -24,7 +22,6 @@ def bubble_sort(array: list[int]) -> None:
 
 
 def counting_sort(array: list[int]) -> None:
-    """"""
     b = [0] * len(array)
     k = max(array)
 
@@ -47,8 +44,7 @@ def counting_sort(array: list[int]) -> None:
     return b
 
 
-def heapify(array, n, i):
-    """"""
+def heapify(array: list[int], n: int, i: int) -> None:
     largest = i
     left = 2*i + 1
     right = 2*i + 2
@@ -65,7 +61,6 @@ def heapify(array, n, i):
 
 
 def heap_sort(array: list[int]) -> None:
-    """"""
     n = len(array)
 
     for i in range(n//2 - 1, -1, -1):
@@ -81,7 +76,6 @@ def heap_sort(array: list[int]) -> None:
 
 
 def insertion_sort(array: list[int]) -> None:
-    """Continually sorts in-place as more numbers are looked at."""
     for i in range(1, len(array)):
         j = i
         while j > 0 and array[j - 1] > array[j]:
@@ -92,7 +86,6 @@ def insertion_sort(array: list[int]) -> None:
 
 
 def merge(array: list[int], p: int, q: int, r: int) -> None:
-    """"""
     n1 = q - p + 1
     n2 = r - q
 
@@ -121,7 +114,6 @@ def merge(array: list[int], p: int, q: int, r: int) -> None:
 
 
 def _merge_sort(array: list[int], p: int, r: int) -> None:
-    """"""
     if p < r:
         q = (p + r) // 2
         _merge_sort(array, p, q)
@@ -131,13 +123,11 @@ def _merge_sort(array: list[int], p: int, r: int) -> None:
 
 
 def merge_sort(array: list[int]) -> None:
-    """"""
     _merge_sort(array, 0, len(array) - 1)
     render(array)
 
 
 def partition(array: list[int], left: int, right: int) -> int:
-    """"""
     flag = array[left]
     while left < right:
         render(array, right)
@@ -155,7 +145,6 @@ def partition(array: list[int], left: int, right: int) -> int:
 
 
 def _quicksort(array: list[int], left: list[int], right: list[int]) -> None:
-    """"""
     if left < right:
         p = partition(array, left, right)
         _quicksort(array, left, p - 1)
@@ -163,13 +152,11 @@ def _quicksort(array: list[int], left: list[int], right: list[int]) -> None:
 
 
 def quicksort(array: list[int]) -> None:
-    """"""
     _quicksort(array, 0, len(array) - 1)
     render(array)
 
 
 def selection_sort(array: list[int]) -> None:
-    """"""
     n = len(array)
     for i in range(n - 1):
         min_index = i
