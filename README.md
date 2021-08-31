@@ -1,7 +1,7 @@
 # Sorting Simulator
 
-<div style="text-align: center">
-  <img width="75%" src="assets/screenshot.png">
+<div align="center">
+  <img width="70%" src="assets/screenshot.png">
   <p>A single frame of merge sort being rendered by the simulator</p>
 </div>
 
