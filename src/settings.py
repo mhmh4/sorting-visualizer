@@ -11,4 +11,5 @@ HEIGHT += BLOCK_SIZE
 NUM_RECTANGLES = ((WIDTH - BLOCK_SIZE) // BLOCK_SIZE) // 2
 MAX_RECT_HEIGHT_POSSIBLE = (HEIGHT - BLOCK_SIZE) // BLOCK_SIZE
 
+# Delay time between each frame (in milliseconds)
 DELAY = 20

@@ -2,7 +2,7 @@ import pygame
 
 from colors import CYAN, DARK_GRAY, LIGHT_GRAY, SLATE_GRAY
 from screen import SCREEN
-from settings import BLOCK_SIZE, DELAY_MS, HEIGHT, WIDTH
+from settings import BLOCK_SIZE, DELAY, HEIGHT, WIDTH
 
 
 def draw_background() -> None:
@@ -38,8 +38,8 @@ def render(array: list[int], highlight: int = None) -> None:
 
     draw_background()
     pygame.display.flip()
-    
+
     draw_rectangles(array, highlight)
     pygame.display.flip()
 
-    pygame.time.wait(DELAY_MS) # see settings.py to modify the delay
+    pygame.time.wait(DELAY) # see settings.py to modify the delay
