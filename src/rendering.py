@@ -1,6 +1,6 @@
 import pygame
 
-from colors import CYAN, DARK_GRAY, LIGHT_GRAY, SLATE_GRAY
+from colors import URANIAN_BLUE, DARK_GRAY, LIGHT_GRAY, SLATE_GRAY
 from screen import SCREEN
 from settings import BLOCK_SIZE, DELAY, HEIGHT, WIDTH
 
@@ -26,7 +26,7 @@ def draw_rectangles(array: list[int], highlight: int = None) -> None:
         y = HEIGHT - (val * BLOCK_SIZE)
         rect = pygame.Rect(x, y, BLOCK_SIZE, val*BLOCK_SIZE)
         if ind == highlight:
-            pygame.draw.rect(SCREEN, CYAN, rect)
+            pygame.draw.rect(SCREEN, URANIAN_BLUE, rect)
         else:
             pygame.draw.rect(SCREEN, SLATE_GRAY, rect)
         # skip a block to create a gap between each rectangle
