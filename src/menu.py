@@ -7,7 +7,7 @@ from algorithms import *
 OPTIONS = {
     "Bubble sort": bubble_sort,
     "Counting sort": counting_sort,
-    "Heap sort": heap_sort,
+    "Heapsort": heapsort,
     "Insertion sort": insertion_sort,
     "Merge sort": merge_sort,
     "Quicksort": quicksort,

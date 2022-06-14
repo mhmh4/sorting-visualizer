@@ -60,7 +60,7 @@ def heapify(array: list[int], n: int, i: int) -> None:
         heapify(array, n, largest)
 
 
-def heap_sort(array: list[int]) -> None:
+def heapsort(array: list[int]) -> None:
     n = len(array)
 
     for i in range(n//2 - 1, -1, -1):
