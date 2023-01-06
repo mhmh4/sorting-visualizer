@@ -21,23 +21,7 @@ The delay between each frame being rendered can also be modified to your satisfa
   - Selection sort
 
 ## Requirements
-- Python 3.9
+- Python 3.10
 
 ## Dependencies
-- Pygame 2.0
-
-## Getting Started
-
-### You can download Pygame using `pip`, but other methods of downloading the library are available on [Pygame's website](https://pygame.org).
-```
-pip install pygame
-```
-
-### Run `main.py` that is within the `src` directory
-```
-py .\src\main.py
-```
-### A small GUI window should appear with a list of the sorting algorithms that you get to choose to simulate. Click on one of those options, then click the Ok button for the simulator to start rendering the algorithm.
-<div align=center>
-  <img width="50%" src="assets/options.png">
-</div>
+- Pygame 2.1.3.dev8
