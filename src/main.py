@@ -17,8 +17,9 @@ def main():
         case "3" | "heap":      selection = algorithms.heapsort
         case "4" | "insertion": selection = algorithms.insertion_sort
         case "5" | "merge":     selection = algorithms.merge_sort
-        case "6" | "quick":     selection = algorithms.quicksort
-        case "7" | "selection": selection = algorithms.selection_sort
+        case "6" | "odd-even":  selection = algorithms.odd_even_sort
+        case "7" | "quick":     selection = algorithms.quicksort
+        case "8" | "selection": selection = algorithms.selection_sort
         case _:
             print(f"Invalid selection: '{choice}'")
             return

@@ -17,6 +17,7 @@ The delay between each frame being rendered can also be modified to your satisfa
   - Heapsort
   - Insertion sort
   - Merge sort
+  - Odd-even sort
   - Quicksort
   - Selection sort
 

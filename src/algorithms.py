@@ -127,6 +127,30 @@ def merge_sort(array: list[int]) -> None:
     render(array)
 
 
+def odd_even_sort(array: list[int]) -> None:
+    n = len(array)
+    is_sorted = False
+    while not is_sorted:
+        is_sorted = True
+        for i in range(1, n - 1, 2):
+            if array[i] > array[i + 1]:
+                render(array, i)
+                swap(array, i, i + 1)
+                render(array, i+1)
+                is_sorted = False
+            else:
+                render(array, i)
+        for i in range(0, n - 1, 2):
+            if array[i] > array[i + 1]:
+                render(array, i)
+                swap(array, i, i + 1)
+                render(array, i+1)
+                is_sorted = False
+            else:
+                render(array, i)
+    render(array)
+
+
 def partition(array: list[int], left: int, right: int) -> int:
     flag = array[left]
     while left < right:
