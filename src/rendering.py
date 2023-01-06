@@ -35,11 +35,8 @@ def draw_rectangles(array: list[int], highlight: int = None) -> None:
 
 def render(array: list[int], highlight: int = None) -> None:
     """Displays the background and the rectangles of `array`."""
-
     draw_background()
-    pygame.display.flip()
-
     draw_rectangles(array, highlight)
-    pygame.display.flip()
 
+    pygame.display.flip()
     pygame.time.wait(DELAY) # see settings.py to modify the delay
