@@ -22,7 +22,7 @@ The delay between each frame being rendered can also be modified to your satisfa
   - Selection sort
 
 ## Requirements
-- Python 3.10
+- Python 3.10+
 
 ## Dependencies
 - Pygame 2.1.3.dev8
