@@ -1,9 +1,6 @@
 # Sorting Simulator
 
-<div align="center">
-  <img width="50%" src="assets/screenshot.png">
-  <p>A single frame of merge sort being rendered by the simulator</p>
-</div>
+<img src="assets/screenshot.png">
 
 ## Introduction
 
