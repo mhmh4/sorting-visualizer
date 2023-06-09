@@ -1,6 +1,8 @@
+import contextlib
 import sys
 
-import pygame
+with contextlib.redirect_stdout(None):
+    import pygame
 
 import generate
 import algorithms
