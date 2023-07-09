@@ -1,15 +1,14 @@
 class Color:
-    BACKGROUND = (35, 35, 35)
-    GRID = (40, 40, 40)
-    RECTANGLE = (100, 119, 135)
-    HIGHLIGHTED_RECTANGLE = (182, 220, 254)
+    BACKGROUND = 0x1F363D
+    RECTANGLE = 0x40798c
+    HIGHLIGHTED_RECTANGLE = 0xCFE0C3
 
 
-BLOCK_SIZE = 10
+BLOCK_SIZE = 7
 
 # Game window dimensions
-WIDTH = 1000
-HEIGHT = 500
+WIDTH = 700
+HEIGHT = 350
 
 # To account for putting a 1 block gap around every rectangle's perimeter
 WIDTH += BLOCK_SIZE
