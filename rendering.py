@@ -1,16 +1,7 @@
 import pygame
 
 from screen import SCREEN
-from settings import (
-    BLOCK_SIZE,
-    DELAY,
-    HEIGHT,
-    WIDTH,
-    URANIAN_BLUE,
-    DARK_GRAY,
-    LIGHT_GRAY,
-    SLATE_GRAY,
-)
+from settings import BLOCK_SIZE, DELAY, HEIGHT, WIDTH, Color
 
 
 def draw_background() -> None:
@@ -20,9 +11,9 @@ def draw_background() -> None:
         for y in range(0, HEIGHT, BLOCK_SIZE):
             rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             # outline a rectangle shape
-            pygame.draw.rect(SCREEN, DARK_GRAY, rect)
+            pygame.draw.rect(SCREEN, Color.BACKGROUND, rect)
             # then fill in that outline
-            pygame.draw.rect(SCREEN, LIGHT_GRAY, rect, 1)
+            pygame.draw.rect(SCREEN, Color.GRID, rect, 1)
 
 
 def draw_rectangles(array: list[int], highlight: int = None) -> None:
@@ -34,9 +25,9 @@ def draw_rectangles(array: list[int], highlight: int = None) -> None:
         y = HEIGHT - (val * BLOCK_SIZE)
         rect = pygame.Rect(x, y, BLOCK_SIZE, val * BLOCK_SIZE)
         if ind == highlight:
-            pygame.draw.rect(SCREEN, URANIAN_BLUE, rect)
+            pygame.draw.rect(SCREEN, Color.HIGHLIGHTED_RECTANGLE, rect)
         else:
-            pygame.draw.rect(SCREEN, SLATE_GRAY, rect)
+            pygame.draw.rect(SCREEN, Color.RECTANGLE, rect)
         # skip a block to create a gap between each rectangle
         x += BLOCK_SIZE * 2
 
