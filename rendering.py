@@ -10,10 +10,7 @@ def draw_background() -> None:
     for x in range(0, WIDTH, BLOCK_SIZE):
         for y in range(0, HEIGHT, BLOCK_SIZE):
             rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
-            # outline a rectangle shape
             pygame.draw.rect(SCREEN, Color.BACKGROUND, rect)
-            # then fill in that outline
-            pygame.draw.rect(SCREEN, Color.GRID, rect, 1)
 
 
 def draw_rectangles(array: list[int], highlight: int = None) -> None:
