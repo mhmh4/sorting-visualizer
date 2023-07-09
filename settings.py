@@ -1,3 +1,8 @@
+URANIAN_BLUE = (182, 220, 254)
+DARK_GRAY = (35, 35, 35)
+LIGHT_GRAY = (40, 40, 40)
+SLATE_GRAY = (100, 119, 135)
+
 BLOCK_SIZE = 10
 
 # Game window dimensions

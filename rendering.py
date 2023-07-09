@@ -1,8 +1,16 @@
 import pygame
 
-from colors import URANIAN_BLUE, DARK_GRAY, LIGHT_GRAY, SLATE_GRAY
 from screen import SCREEN
-from settings import BLOCK_SIZE, DELAY, HEIGHT, WIDTH
+from settings import (
+    BLOCK_SIZE,
+    DELAY,
+    HEIGHT,
+    WIDTH,
+    URANIAN_BLUE,
+    DARK_GRAY,
+    LIGHT_GRAY,
+    SLATE_GRAY,
+)
 
 
 def draw_background() -> None:
@@ -24,7 +32,7 @@ def draw_rectangles(array: list[int], highlight: int = None) -> None:
     x = BLOCK_SIZE
     for ind, val in enumerate(array):
         y = HEIGHT - (val * BLOCK_SIZE)
-        rect = pygame.Rect(x, y, BLOCK_SIZE, val*BLOCK_SIZE)
+        rect = pygame.Rect(x, y, BLOCK_SIZE, val * BLOCK_SIZE)
         if ind == highlight:
             pygame.draw.rect(SCREEN, URANIAN_BLUE, rect)
         else:
@@ -39,4 +47,4 @@ def render(array: list[int], highlight: int = None) -> None:
     draw_rectangles(array, highlight)
 
     pygame.display.flip()
-    pygame.time.wait(DELAY) # see settings.py to modify the delay
+    pygame.time.wait(DELAY)  # see settings.py to modify the delay
