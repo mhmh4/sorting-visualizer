@@ -8,7 +8,8 @@ This is a simulator that renders sorting algorithms being performed on randomly 
 
 The delay between each frame being rendered can also be modified to your satisfaction. If you customized the GUI to be large, then consider decreasing the delay, otherwise increase the delay if you customized the GUI to be small. This will make the simulation be rendered at a good speed that can help show you the sorting algorithm works.
 
-#### The following sorting algorithms are implemented within the application:
+Sorting algorithms implemented:
+
   - Bubble sort
   - Counting sort
   - Heapsort
@@ -22,4 +23,4 @@ The delay between each frame being rendered can also be modified to your satisfa
 - Python 3.10+
 
 ## Dependencies
-- Pygame 2.1.3.dev8
+- Pygame 2.5.0
