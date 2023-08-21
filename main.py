@@ -7,6 +7,8 @@ with contextlib.redirect_stdout(None):
 import generate
 import algorithms
 
+pygame.display.set_caption("sorting-simulator")
+pygame.display.set_icon(pygame.Surface((0, 0)))
 
 def main():
     if len(sys.argv) < 2:
