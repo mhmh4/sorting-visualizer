@@ -35,8 +35,8 @@ def main():
             return
     array = generate.generate_random_array()
     done = False
-    while True:
-        try:
+    try:
+        while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -44,8 +44,9 @@ def main():
             if not done:
                 selection(array)
             done = True
-        except KeyboardInterrupt:
-            break
+    except KeyboardInterrupt:
+        print()
+        pass
 
 
 if __name__ == "__main__":
