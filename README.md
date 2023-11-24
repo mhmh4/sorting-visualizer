@@ -9,19 +9,20 @@ This visualizer renders sorting algorithms being performed on randomly generated
 The length of each rectangle and the rectangle count are proportional to the dimensions of the
 screen which can be modified in `settings.py`.
 
-Sorting algorithms implemented:
+## Getting Started
 
-  - Bubble sort
-  - Counting sort
-  - Heapsort
-  - Insertion sort
-  - Merge sort
-  - Odd-even sort
-  - Quicksort
-  - Selection sort
+1). Install dependencies.
 
-## Requirements
-- Python 3.10+
+```
+pip install -r requirements.txt
+```
 
-## Dependencies
-- Pygame 2.5.0
+2). Execute `run.py` within the `src` directory while passing an argument of the sorting algorithm.
+
+```
+python src/run.py <sorting algorithm>
+```
+
+## License
+
+MIT
