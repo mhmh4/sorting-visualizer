@@ -8,7 +8,7 @@ import generate
 import algorithms
 
 
-def main():
+def run():
     if len(sys.argv) < 2:
         print("Usage: sorting algorithm name")
         return
@@ -50,4 +50,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()
